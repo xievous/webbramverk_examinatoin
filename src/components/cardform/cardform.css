@@ -1,0 +1,13 @@
+form {
+  display: grid;
+  grid-template-columns: auto;
+}
+
+.form_card_info {
+  display: flex;
+  flex-direction: column;
+}
+
+.form_valid_ccv {
+  display: flex;
+}
