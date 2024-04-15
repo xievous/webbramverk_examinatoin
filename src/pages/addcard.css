@@ -1,5 +1,30 @@
-body {
-  width: 40%;
-  margin-left: auto;
-  margin-right: auto;
+.btc {
+  background: linear-gradient(0deg, #ffae34, #ffae34),
+    linear-gradient(
+      248.04deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(255, 255, 255, 0) 99.07%
+    );
+}
+
+.evil_corp {
+  background: linear-gradient(0deg, #f33355, #f33355),
+    linear-gradient(248.3deg, rgba(0, 0, 0, 0.16) 0%, rgba(0, 0, 0, 0) 100%);
+  color: #ffffff;
+}
+
+.ninja_bank {
+  background: linear-gradient(0deg, #222222, #222222),
+    linear-gradient(
+      248.3deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  color: #ffffff;
+}
+
+.blockchain_inc {
+  background: linear-gradient(0deg, #8b58f9, #8b58f9),
+    linear-gradient(248.52deg, rgba(0, 0, 0, 0.15) 1.49%, rgba(0, 0, 0, 0) 100%);
+  color: #ffffff;
 }

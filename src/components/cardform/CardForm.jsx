@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import "./cardform.css";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addCard } from "../../reducer/cardReducer";
 
-export function CardForm() {
+export function CardForm(props) {
+  const { setCardNumber, setCardHolder, setCardValidation, setVendor } = props;
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const [cards, setCards] = useState({
     cardNumber: "",
     cardHolder: "",
@@ -12,22 +18,32 @@ export function CardForm() {
     vendors: "",
   });
 
-  const dispatch = useDispatch();
-
   const handleChange = (event) => {
     const { id, value } = event.target;
-    console.log("handleChange runs!");
-    setCards({
-      ...cards,
+
+    setCards((prevCards) => ({
+      ...prevCards,
       [id]: value,
-    });
+    }));
+
+    if (id === "cardNumber") {
+      setCardNumber(value);
+    } else if (id === "cardHolder") {
+      setCardHolder(value);
+    } else if (id === "validation") {
+      setCardValidation(value);
+    } else if (id === "vendors") {
+      setVendor(value);
+    }
   };
 
-  function handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("handleSubmit runs!");
+    console.log("Submitting with cards:", cards);
     dispatch(addCard(cards));
-  }
+    navigate("/", { state: { cards } });
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <article className="form_card_info">
@@ -35,6 +51,7 @@ export function CardForm() {
         <input
           type="text"
           id="cardNumber"
+          placeholder="XXXX-XXXX-XXXX-XXXX"
           value={cards.cardNumber}
           onChange={handleChange}
         />
@@ -45,35 +62,43 @@ export function CardForm() {
         <input
           type="text"
           id="cardHolder"
+          placeholder="Firstname Lastname"
           value={cards.cardHolder}
           onChange={handleChange}
         />
       </article>
 
       <article className="form_valid_ccv">
-        <div className="form_card_info">
+        <div className="form_card_third">
           <label htmlFor="validation">VALID THRU</label>
           <input
             type="text"
             id="validation"
+            placeholder="XX / XX"
             value={cards.validation}
             onChange={handleChange}
           />
         </div>
-        <div className="form_card_info">
+        <div className="form_card_third">
           <label htmlFor="ccv">CCV</label>
           <input
             type="text"
             id="ccv"
+            placeholder="XXX"
             value={cards.ccv}
             onChange={handleChange}
           />
         </div>
       </article>
 
-      <article>
+      <article className="form_card_info">
         <label htmlFor="vendors">VENDORS</label>
         <select id="vendors" value={cards.vendors} onChange={handleChange}>
+          <option value="" disabled>
+            {" "}
+            {/* Gör en slags placeholder i min select */}
+            --Select a vendor--
+          </option>
           <option value="btc">Bitcoin</option>
           <option value="ninja_bank">Ninja Bank</option>
           <option value="blockchain_inc">Blockchan Inc</option>

@@ -1,13 +1,47 @@
 form {
   display: grid;
   grid-template-columns: auto;
+  font-size: 18px;
 }
 
 .form_card_info {
   display: flex;
   flex-direction: column;
+  margin: 5px;
+}
+
+.form_card_third {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 5px;
+}
+
+.form_card_info select {
+  height: 56px;
+  margin: 5px;
+  border-radius: 8px;
+  border: 5px 0px 0px 0px;
 }
 
 .form_valid_ccv {
   display: flex;
+}
+
+input {
+  border-radius: 8px;
+  height: 3rem;
+}
+
+button {
+  font-size: 22px;
+  font-weight: 700;
+  width: 382px;
+  height: 72px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+  opacity: 0px;
+  background-color: #000000;
+  color: #ffffff;
 }

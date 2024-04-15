@@ -1,15 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = [];
+const initialState = /* JSON.parse(localStorage.getItem("cards")) || */ [];
 
 const cardSlice = createSlice({
   name: "card",
   initialState,
+
   reducers: {
     addCard(state, action) {
-      console.log("State är: ", state);
-      console.log("Action är: ", action);
       state.push(action.payload);
+      /*
+      localStorage.setItem("cards", JSON.stringify(state));
+      */
     },
   },
 });
