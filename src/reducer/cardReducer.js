@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = /* JSON.parse(localStorage.getItem("cards")) || */ [];
+const initialState = JSON.parse(localStorage.getItem("cards")) || [];
 
 const cardSlice = createSlice({
   name: "card",
@@ -9,9 +9,8 @@ const cardSlice = createSlice({
   reducers: {
     addCard(state, action) {
       state.push(action.payload);
-      /*
+
       localStorage.setItem("cards", JSON.stringify(state));
-      */
     },
   },
 });

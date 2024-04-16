@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Card } from "../card/Card";
+import "./cardstack.css";
 
 function Cardstack() {
   const displayCards = useSelector((state) => state.card);

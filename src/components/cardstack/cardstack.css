@@ -1,3 +1,9 @@
+.cardstack .card {
+  margin-bottom: -200px;
+}
+
 .cardstack {
-  transform: translateY(1000px);
+  display: grid;
+  grid-template-columns: 1fr;
+  padding-bottom: 250px;
 }
